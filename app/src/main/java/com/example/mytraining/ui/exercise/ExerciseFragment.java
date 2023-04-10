@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.mytraining.AdaptadorEjercicio;
+import com.example.mytraining.R;
 import com.example.mytraining.databinding.FragmentHomeBinding;
 
 public class ExerciseFragment extends Fragment {
@@ -26,12 +28,14 @@ public class ExerciseFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         exerciseViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 
     @Override
     public void onDestroyView() {
+
         super.onDestroyView();
-        binding = null;
+        //binding = null;
     }
 }

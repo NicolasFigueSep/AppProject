@@ -3,6 +3,8 @@ package com.example.mytraining;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,13 +17,15 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.mytraining.databinding.ActivityMainBinding;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     DataBaseHelper dataBaseHelper=new DataBaseHelper(this);
     private SQLiteDatabase db;
-
+    ListView listViewEjercicios;
+    private ArrayList<Ejercicio> listaEjercicios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+        llenaListaEjercicios();
+        initAndSetAdapter();
 
     }
     public void pruebaBD(){
@@ -51,6 +57,20 @@ public class MainActivity extends AppCompatActivity {
         cursor.close();
         db.close();
 
+    }
+    public void llenaListaEjercicios(){
+        listaEjercicios = new ArrayList<Ejercicio>();
+        listaEjercicios.add(new Ejercicio(1,"Elevaciones de hombros con mancuernas","Sostén una mancuerna en cada mano y levanta los hombros hacia las orejas, manteniendo los brazos rectos. Mantén la posición durante un segundo y luego baja los hombros lentamente.",
+                "https://youtu.be/xeJjTRIYOIM",0.060));
+        listaEjercicios.add(new Ejercicio(2,"Remo con barra","Mantén la espalda recta y levanta la barra hacia tu pecho, manteniendo los codos cerca del cuerpo. Baja la barra lentamente y repite el ejercicio.",
+                "https://www.youtube.com/watch?v=G8l_8chR5BE",0.100));
+        listaEjercicios.add(new Ejercicio(3,"Encogimientos de hombros con cable"," Agarra un cable con una polea baja en cada mano y tira de ellos hacia arriba hasta que tus hombros estén cerca de tus oídos. Mantén la posición durante un segundo y luego baja lentamente los cables.",
+                "https://youtu.be/v7QczJNuWIg",0.060));
+    }
+    public void initAndSetAdapter(){
+        AdaptadorEjercicio miAdaptadorEjercicio = new AdaptadorEjercicio(this,listaEjercicios);
+        listViewEjercicios = findViewById(R.id.exercise_list);
+        listViewEjercicios.setAdapter(miAdaptadorEjercicio);
     }
 
 }
