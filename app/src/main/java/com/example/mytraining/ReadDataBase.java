@@ -24,5 +24,26 @@ public closeDataBase(){
 }
 
 public ArrayList<Ejercicio> getAllExercise(){
-    
+    Cursor c;
+    String name;
+    String description;
+    int id;
+    try {
+        c = db.rawQuery("SELECT * FROM " + TB_EJERCICIO , null);
+        if(c == null) return null;
+        
+        c.moveToFirst();
+        do {
+            id = c.getInt(1);            
+            name = c.getString(2);
+            description = c.getString(3);            
+            listaEjercicios.add(new Ejercicio(id,name,descriptio,"",0));
+        } while (c.moveToNext()); 
+        c.close();
+    } catch (Exception e) {
+        Log.e("tle99", e.getMessage());
+
+        
+    }
+    return listaEjercicios;
 }
