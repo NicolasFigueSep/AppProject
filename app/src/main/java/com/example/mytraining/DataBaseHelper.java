@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
-
+// hecho con la siguiente informacion https://icedtealabs.com/android/android-use-existing-sqlite-database-in-android-app/
 public class DataBaseHelper extends SQLiteOpenHelper {
     private static String PATH = "/data/data/com.example.mytraining/databases";
     private static String NAME = "MyTrainingSessionsBD.db.sql";
