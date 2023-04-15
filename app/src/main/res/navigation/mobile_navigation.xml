@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_exercise">
+
+    <fragment
+        android:id="@+id/navigation_exercise"
+        android:name="com.example.mytraining.ui.exercise.ExerciseFragment"
+        android:label="@string/title_exercise"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_exercise_to_navigation_my_profile"
+            app:destination="@id/navigation_my_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_profile"
+        android:name="com.example.mytraining.ui.profile.ProfileFragment"
+        android:label="@string/title_my_profile"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_my_profile_to_navigation_exercise"
+            app:destination="@id/navigation_exercise" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_routines"
+        android:name="com.example.mytraining.ui.routines.RoutinesFragment"
+        android:label="@string/title_my_routines"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>

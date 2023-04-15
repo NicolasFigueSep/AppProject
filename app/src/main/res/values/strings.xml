@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyTraining</string>
+    <string name="title_exercise">Exercise</string>
+    <string name="title_my_profile">My Profile</string>
+    <string name="title_my_routines">My Routines</string>
+    <string name="tituloejerciciotextview">TextView</string>
+    <string name="descripcionejerciciotextview">TextView</string>
+    <string name="descripcionTitleTextView">"Descripción"</string>
+</resources>
